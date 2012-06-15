@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}index.css" />
+    </head>
+    <body>
+        <div id="corpo" >
+            <h1>Loja</h1>
+            <a href='/login'>login</a>
+            <div id="produtos">
+                {% for produto in produtos %}
+                    <div class="produto">
+                        <img src="imagem.jpg" />
+                        <p>{{ produto.nome }}</p>
+                        <p>R${{ produto.preco }}</p>
+                        {% if logado %}
+                        <p>comprar</p>
+                        {% else %}
+                        <p>vender</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
