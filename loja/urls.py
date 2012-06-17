@@ -8,14 +8,18 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    url(r'^$', 'home.views.home'),
-    #url(r'^login', 'vitrine.views.logar'),
-    # url(r'^loja/', include('loja.foo.urls')),
+                       # Examples:
+                       url(r'^$', 'home.views.home'),
+                       url(r'^login', 'django.contrib.auth.views.login',
+                           {'template_name': 'login.html'}),
+                       url(r'^logout', 'django.contrib.auth.views.logout'),
+                       url(r'^comprar', 'home.views.comprar'),
+                       url(r'^registrar', 'home.views.registrar'),
+                       # url(r'^loja/', include('loja.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+                       # Uncomment the admin/doc line below to enable admin documentation:
+                       url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-)
+                       # Uncomment the next line to enable the admin:
+                       url(r'^admin/', include(admin.site.urls)),
+                      )

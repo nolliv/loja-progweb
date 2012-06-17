@@ -1,33 +1,11 @@
-#corpo {
-    display:block;
+.container_12 {
     background: #797;
-    width:960px;
     height:100%;
-    margin:0 auto;
-    padding:20px;
-}
-body{
-    background:#000;
 }
 
-#produtos {
-    width: 950px;
-    margin: 0 auto;
-}
+.grid_12 a { float:right }
+
 .produto {
-    float: left;
     text-align: center;
-    width:180px;
-    height:300px;
-    margin:0 50px 0 0;
-    padding-top: 10px;
     background: #779;
-
 }
-
-.produto img {
-    width: 150px;
-    height: 150px;
-    background: #000;
-}
-
