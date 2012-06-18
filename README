@@ -1,19 +1,19 @@
-login de usuário
+TODO:
+
+trocar a tela de logout default por uma propria
 
 fixtures
 
 tela de
-    home
     detalhe do produto
+        adicionar thumbnail, descrição e categoria
     compra
         detalhes da compra
         finalizar compra
             registrar a compra
                 decrementar os produtos no estoque
             agradecimento -> home
-    registro de novo usuário
-        cadastro com cpf
+
+cadastro e usuário com cpf
 
 carrinho de compras
-
-
