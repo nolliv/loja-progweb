@@ -1,0 +1,19 @@
+login de usuário
+
+fixtures
+
+tela de
+    home
+    detalhe do produto
+    compra
+        detalhes da compra
+        finalizar compra
+            registrar a compra
+                decrementar os produtos no estoque
+            agradecimento -> home
+    registro de novo usuário
+        cadastro com cpf
+
+carrinho de compras
+
+
