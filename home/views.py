@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from home.models import Produto
-from django.db.models import CommaSeparatedIntegerField
 
 
 def home(request):
@@ -13,6 +13,10 @@ def home(request):
     return render_to_response('index.html',
                               {'produtos': produtos},
                               context_instance=RequestContext(request))
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 def registrar(request):
     if request.method == 'POST':
@@ -30,7 +34,7 @@ def registrar(request):
                              context_instance=RequestContext(request))
 
 @login_required
-def comprar(request):
+def carrinho(request):
     prod_id = request.GET['prod_id']
     #lista_ids = query.split(',')
     if not 'prod_ids' in request.session.keys():
@@ -41,7 +45,6 @@ def comprar(request):
 
     #insira aqui uma list comprehension boladona que retorna os produtos!
     produtos = [ Produto.objects.get(id=prod_id) for prod_id in request.session['prod_ids']]
-    import ipdb; ipdb.set_trace()
     preco_total = 0
     for produto in produtos:
         sp = produto.preco.split(',')
@@ -50,6 +53,15 @@ def comprar(request):
     str_tot = unicode(preco_total)
     str_tot2 = str_tot[:-2] + ',' + str_tot[-2:]
 
-    return render_to_response('comprar.html',
+    return render_to_response('carrinho.html',
                               {'produtos': produtos, 'tot': str_tot2},
                              context_instance=RequestContext(request))
+
+@login_required
+def finalizar_compra(request):
+    for prod_id in request.session['prod_ids']:
+        prod = Produto.objects.get(id=prod_id)
+        prod.qtd_em_estoque -= 1
+        prod.save()
+    logout(request)
+    return HttpResponseRedirect('/')

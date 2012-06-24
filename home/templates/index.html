@@ -1,49 +1,6 @@
 <html>
     <head>
         <script src="{{ STATIC_URL }}jquery-1.7.2.js"></script>
-
-        <!--script type="text/javascript"> //cookie handlers
-            function createCookie(name, value, days) {
-                if (days) {
-                    var date = new Date();
-                    date.setTime(date.getTime()+(days*24*60*60*1000));
-                    var expires = "; expires="+date.toGMTString();
-                }
-                else var expires = "";
-                document.cookie = name+"="+value+expires+"; path=/";
-            }
-
-            function readCookie(name) {
-                var nameEQ = name + "=";
-                var cookieArray = document.cookie.split(";");
-                for (var i=0; i<cookieArray.length; i++) {
-                    var c = cookieArray[i];
-                    while (c.charAt(0)==' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            }
-            function eraseCookie(name) { createCookie(name,"",-1) }
-        </script>
-
-        <script type="text/javascript"> //inline
-            $(document).ready(function(){
-                $(".produto > a").click(function(event){
-                    href = $(this).attr('href');
-                    prodId = href.substring('comprar?ids='.length, href.length);
-                    prodsCarrinho = readCookie('prodsCarrinho');
-                    if (!prodsCarrinho) Produtos = prodId;
-                    else {
-                    //ATENCAO: Produtos com P maiuscolo para diferencias da div id=produtos!
-                        listaIds = prodsCarrinho.split(',');
-                        if($.inArray(prodId, listaIds) == -1)Produtos = prodsCarrinho + ',' + prodId;
-                    }
-                    createCookie('prodsCarrinho', Produtos);
-                    window.location = 'comprar?ids=' + Produtos;
-                    event.preventDefault();
-                });    
-            });
-        </script-->
     </head>
     <body>
         <div class='container_12'>
@@ -61,7 +18,7 @@
                     <div class='grid_3 produto'>
                         <p class='nome_produto'>{{ produto.nome }}</p>
                         <p>R${{ produto.preco }}</p>
-                        <a href='comprar?prod_id={{ produto.id }}'>comprar</a>
+                        <a href='carrinho?prod_id={{ produto.id }}'>comprar</a>
                     </div>
                 {% endfor %}
             </div>

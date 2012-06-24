@@ -1,23 +1,13 @@
 TODO:
 
+resetar banco!
 
 permitir retirar um produto do carrinho
-permitir alterar a quantidade dos produtos
-tirar a querysting da view de comprar e renomear pra carrinho
-[efetuar compra]
+permitir alterar a quantidade dos produtos na venda
+tirar a querysting da view de comprar
 
-trocar a tela de logout default por uma propria
+tela de detalhe do produto
 
-fixtures
-
-tela de
-    detalhe do produto
-        adicionar thumbnail, descrição e categoria
-    compra
-        detalhes da compra
-        finalizar compra
-            registrar a compra
-                decrementar os produtos no estoque
-            agradecimento -> home
+adicionar thumbnail, descrição e categoria aos produtos
 
 cadastro de usuário com cpf
