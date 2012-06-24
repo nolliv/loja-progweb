@@ -1,11 +1,10 @@
 TODO:
 
-na view do carrinho, mostrar uma tabela com nome, quantidade e preço dos produtos
-permitir alterar a quantidade dos produtos
-mostrar um resumo da compra
-permitir retirar um produto do carrinho
-[efetuar compra]
 
+permitir retirar um produto do carrinho
+permitir alterar a quantidade dos produtos
+tirar a querysting da view de comprar e renomear pra carrinho
+[efetuar compra]
 
 trocar a tela de logout default por uma propria
 

@@ -2,11 +2,13 @@
     <head>
     </head>
     <body>
-    {% for produto in produtos %}
-        <div class='grid_3 produto'>
-            <p class='nome_produto'>{{ produto.nome }}</p>
-            <p>R${{ produto.preco }}</p>
-        </div>
-    {% endfor %}
+        <h3>carrinho de compras</h3>
+        <table>
+            <tr><td>Produto</td><td>preço</td></tr>
+        {% for produto in produtos %}
+            <tr> <td>{{ produto.nome }}</td> <td>R${{ produto.preco }}</td> </tr>
+        {% endfor %}
+        </table>
+        <p>tot: {{ tot }}</p>
     </body>
 </html>

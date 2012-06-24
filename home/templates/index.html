@@ -2,7 +2,7 @@
     <head>
         <script src="{{ STATIC_URL }}jquery-1.7.2.js"></script>
 
-        <script type="text/javascript"> //cookie handlers
+        <!--script type="text/javascript"> //cookie handlers
             function createCookie(name, value, days) {
                 if (days) {
                     var date = new Date();
@@ -43,7 +43,7 @@
                     event.preventDefault();
                 });    
             });
-        </script>
+        </script-->
     </head>
     <body>
         <div class='container_12'>
@@ -61,7 +61,7 @@
                     <div class='grid_3 produto'>
                         <p class='nome_produto'>{{ produto.nome }}</p>
                         <p>R${{ produto.preco }}</p>
-                        <a href='comprar?ids={{ produto.id }}'>comprar</a>
+                        <a href='comprar?prod_id={{ produto.id }}'>comprar</a>
                     </div>
                 {% endfor %}
             </div>
