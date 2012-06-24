@@ -1,4 +1,3 @@
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -31,8 +30,11 @@ def registrar(request):
 
 @login_required
 def comprar(request):
-    prod = request.GET['produto']
+    query = request.GET['ids']
+    lista_ids = query.split(',')
+    #insira aqui uma list comprehension boladona que retorna os produtos!
+    produtos = [ Produto.objects.get(id=prod_id) for prod_id in lista_ids ]
 
     return render_to_response('comprar.html',
-                              {'produto': prod},
+                              {'produtos': produtos},
                              context_instance=RequestContext(request))

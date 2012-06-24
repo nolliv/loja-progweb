@@ -1,5 +1,12 @@
 TODO:
 
+na view do carrinho, mostrar uma tabela com nome, quantidade e preço dos produtos
+permitir alterar a quantidade dos produtos
+mostrar um resumo da compra
+permitir retirar um produto do carrinho
+[efetuar compra]
+
+
 trocar a tela de logout default por uma propria
 
 fixtures
@@ -14,6 +21,4 @@ tela de
                 decrementar os produtos no estoque
             agradecimento -> home
 
-cadastro e usuário com cpf
-
-carrinho de compras
+cadastro de usuário com cpf

@@ -2,7 +2,11 @@
     <head>
     </head>
     <body>
-        <p>{{ produto.nome }}</p>
-        <p>R${{ produto.preco }}</p>
+    {% for produto in produtos %}
+        <div class='grid_3 produto'>
+            <p class='nome_produto'>{{ produto.nome }}</p>
+            <p>R${{ produto.preco }}</p>
+        </div>
+    {% endfor %}
     </body>
 </html>
