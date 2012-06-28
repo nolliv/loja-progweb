@@ -30,7 +30,12 @@ def registrar(request):
     else:
         form = UserCreationForm()
 
-    return render_to_response('registrar.html', {'form': form},
+    return render_to_response('registro.html', {'form': form},
+                             context_instance=RequestContext(request))
+
+def detalhe(request, produto_id):
+    produto = Produto.objects.get(id=produto_id)
+    return render_to_response('detalhe.html', {'produto': produto},
                              context_instance=RequestContext(request))
 
 @login_required

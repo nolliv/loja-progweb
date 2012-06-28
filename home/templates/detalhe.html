@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h3>LOJA<span> - {{ produto.categoria }}</span></h3>
+<div class="conteudoSimples">
+    <form name="formDetalheMaterial" action="carrinho.html" method="post">
+        <a href="./img/material.png"><img src="{{ STATIC_URL }}img/material.png" width="200" style="margin-left:380px;" /></a>
+        <p class="texto">Nome: <span>{{ produto.nome }}</span></p>
+        <p class="texto">Preço: <span>{{ produto.preco }}</span></p>
+        <p class="texto">Descrição:<br/><span>{{ produto.descricao }}</span></p>
+        <p class="obs">* Imagens meramente ilustrativas.</p>
+        <input type="submit" name="comprar" id="comprar" value="Comprar" />
+        <input type="button" name="voltar" id="voltar" value="Voltar" onclick="javascript:history.back();"/>
+    </form>
+</div>
+{% endblock %}

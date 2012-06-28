@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import settings
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
@@ -13,7 +14,10 @@ urlpatterns = patterns('',
                        url(r'^login', 'django.contrib.auth.views.login',
                            {'template_name': 'login.html'}),
                        url(r'^logout', 'home.views.logout_view'),
+                        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                            'document_root': settings.MEDIA_ROOT}),
                        url(r'^carrinho', 'home.views.carrinho'),
+                       url(r'^produto/(?P<produto_id>\d+)/$', 'home.views.detalhe'),
                        url(r'^finalizar_compra', 'home.views.finalizar_compra'),
                        url(r'^registrar', 'home.views.registrar'),
                        # url(r'^loja/', include('loja.foo.urls')),
